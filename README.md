@@ -30,6 +30,14 @@ Stop the stack:
 ```
 docker stack rm wiki
 ```
+In docker-compose.yml uncomment the line:
+```
+: - ./LocalSettings.php:/var/www/html/LocalSettings.php
+```
+Start the stack again:
+```
+docker stack deploy -c docker-compose.yml wiki
+```
 Go to http://localhost if you get the error:
 ```
 Error
