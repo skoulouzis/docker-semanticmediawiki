@@ -7,7 +7,8 @@
 		"mediawiki/semantic-extra-special-properties": "~2",
 		"mediawiki/semantic-glossary": "~3",
 		"mediawiki/semantic-meta-tags": "~2",
-		"mediawiki/semantic-result-formats": "~3"
+		"mediawiki/semantic-result-formats": "~3",
+		"php-http/curl-client": "~2"
 	},
 	"extra": {
 		"merge-plugin": {

@@ -51,19 +51,6 @@ $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 
-## Database settings
-$wgDBtype = "mysql";
-$wgDBserver = "mariadb";
-$wgDBname = "my_wiki";
-$wgDBuser = "wikiuser";
-$wgDBpassword = "example";
-
-# MySQL specific settings
-$wgDBprefix = "";
-
-# MySQL table options to use during installation or update
-$wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
-
 ## Shared memory settings
 $wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
@@ -95,14 +82,14 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "0be618dff730967f358de796cc71657816ee414fbfe0743dd4de5b02c4d06c07";
+$wgSecretKey = "14fbfe0743dd4de5b02c4d06c07";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "71f887752141e273";
+$wgUpgradeKey = "2141e273";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -168,3 +155,11 @@ wfLoadExtension( 'WikiEditor' );
 enableSemantics();
 $wgShowExceptionDetails = true;
 $wgShowDBErrorBacktrace = true;
+
+$smwgDefaultStore = 'SMWSparqlStore';
+$smwgSparqlRepositoryConnector = 'fuseki';
+$smwgSparqlQueryEndpoint = 'http://fuseki:3030/db/query';
+$smwgSparqlUpdateEndpoint = 'http://fuseki:3030/db/update';
+$smwgSparqlDataEndpoint = '';
+$smwgSparqlDefaultGraph = 'http://example.org/mydefaultgraphname'; # optional name of default graph
+

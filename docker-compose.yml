@@ -9,27 +9,27 @@ services:
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
-      #- ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
   
-  mariadb:
-    image: mariadb/server:10.3
-    environment:
-      # @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
-      MYSQL_DATABASE: my_wiki
-      MYSQL_USER: wikiuser
-      MYSQL_PASSWORD: example
-      MYSQL_ROOT_PASSWORD: example
-    volumes:
-        - db-data:/var/lib/mysql
-        
-  #fuseki:
-    #image: stain/jena-fuseki
+  #mariadb:
+    #image: mariadb/server:10.3
     #environment:
-      #ADMIN_PASSWORD: admin
-    #ports:
-      #- "3030:3030"      
+      ## @see https://phabricator.wikimedia.org/source/mediawiki/browse/master/includes/DefaultSettings.php
+      #MYSQL_DATABASE: my_wiki
+      #MYSQL_USER: wikiuser
+      #MYSQL_PASSWORD: example
+      #MYSQL_ROOT_PASSWORD: example
     #volumes:
-        #- db-data:/fuseki    
+        #- db-data:/var/lib/mysql
+        
+  fuseki:
+    image: stain/jena-fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+    ports:
+      - "3030:3030"      
+    volumes:
+        - db-data:/fuseki    
       
 volumes:
   db-data:  
