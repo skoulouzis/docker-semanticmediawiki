@@ -15,13 +15,16 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
-$wgSitename = "TravisWiki";
+$wgSitename = "media_wiki";
+$wgMetaNamespace = "Media_wiki";
+
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = "/TravisWiki";
+$wgScriptPath = "";
+$wgServer = "http://localhost";
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
 ## The URL path to the logo.  Make sure you change this from the default,
@@ -37,10 +40,11 @@ $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "";
-$wgDBname = "its_a_mw";
-$wgDBuser = "root";
-$wgDBpassword = "";
+$wgDBserver = "mariadb";
+$wgDBname = "my_wiki";
+$wgDBuser = "wikiuser";
+$wgDBpassword = "example";
+
 # MySQL specific settings
 $wgDBprefix = "";
 # MySQL table options to use during installation or update
@@ -71,12 +75,12 @@ $wgShellLocale = "en_US.utf8";
 #$wgCacheDirectory = "$IP/cache";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
-$wgSecretKey = "044e3c5a4957d09f286993985838e675292f957fb506e5822b86cb835f674a76";
+$wgSecretKey = "ecf503f613557d96a678dcefc2eb4ddf84c5ab1dc2ce9cec8278ec61a1a94bfb";
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b658baba33853c3b";
+$wgUpgradeKey = "d444d956fc615140";
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
@@ -89,6 +93,11 @@ $wgDiff3 = "/usr/bin/diff3";
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
 $wgDefaultSkin = "vector";
+# Enabled skins.
+# The following skins were automatically enabled:
+wfLoadSkin( 'MonoBook' );
+wfLoadSkin( 'Timeless' );
+wfLoadSkin( 'Vector' );
 # End of automatically generated settings.
 # Add more configuration options below.
 define("SMW_PHPUNIT_PULL_VERSION_FROM_GITHUB", true);
@@ -110,5 +119,7 @@ ini_set("display_errors", 1);
 $wgShowExceptionDetails = true;
 $wgDevelopmentWarnings = true;
 $wgShowSQLErrors = true;
-$wgDebugDumpSql = false;
+$wgDebugDumpSql = true;
 $wgShowDBErrorBacktrace = true;
+
+enableSemantics();
