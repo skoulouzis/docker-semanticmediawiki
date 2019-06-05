@@ -2,7 +2,7 @@ FROM mediawiki:1.31.1
 
 RUN apt-get update -y; apt-get upgrade -y
 
-RUN  apt-get install -y unzip git wget software-properties-common
+RUN  apt-get install -y unzip git wget software-properties-common mysql-client
 
 RUN mkdir /opt/jdk
 WORKDIR /opt/
@@ -19,7 +19,6 @@ COPY composer.local.json /var/www/html
 WORKDIR /root/
 COPY setup.sh .
 RUN chmod +x setup.sh
-
 
 WORKDIR /root/
 RUN wget https://github.com/mwjames/travis-support/raw/master/fuseki/2.4.0/apache-jena-fuseki-2.4.0.tar.gz

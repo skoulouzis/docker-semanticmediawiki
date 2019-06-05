@@ -1,5 +1,14 @@
 #!/bin/bash
 
+mysql -uroot -pexample -hmariadb -e'SELECT version();'
+while (($?))
+do
+    sleep 0.2
+    mysql -uroot -pexample -hmariadb -e'SELECT version();'  
+done
+
+echo "mysql is up"
+
 cd /var/www/html
  
 php maintenance/install.php \
@@ -24,5 +33,6 @@ composer update --no-dev --prefer-source
 cd /var/www/html/extensions/SemanticMediaWiki/maintenance
 php setupStore.php
 
-bash fuseki-server --update --mem /db &>/tmp/fuseki-server &
+cd /root/fuseki/
+bash fuseki-server &>/tmp/fuseki-server &
 

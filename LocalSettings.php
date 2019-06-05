@@ -111,8 +111,8 @@ $smwgNamespacesWithSemanticLinks = array( NS_MAIN => true, NS_FILE => true, NS_T
 $smwgNamespace = "http://example.org/id/";
 $smwgDefaultStore = "SMWSparqlStore";
 $smwgSparqlRepositoryConnector = "Fuseki";
-$smwgSparqlEndpoint["query"] = "http://localhost:3030/db/query";
-$smwgSparqlEndpoint["update"] = "http://localhost:3030/db/update";
+$smwgSparqlEndpoint["query"] = "http://fuseki:3030/db/query";
+$smwgSparqlEndpoint["update"] = "http://fuseki:3030/db/update";
 $smwgSparqlEndpoint["data"] = "";
 error_reporting(E_ALL| E_STRICT);
 ini_set("display_errors", 1);
