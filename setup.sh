@@ -34,5 +34,5 @@ cd /var/www/html/extensions/SemanticMediaWiki/maintenance
 php setupStore.php
 
 cd /root/fuseki/
-bash fuseki-server &>/tmp/fuseki-server &
+bash fuseki-server --update --mem /db &>/tmp/fuseki-server &
 
