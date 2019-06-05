@@ -4,9 +4,9 @@ services:
     image: smw
     ports:
       - "80:80"
-      - "3030:3030"
     depends_on:
       - mariadb
+      - fuseki
     #volumes:
       #- /var/www/html/images
       # After initial setup, download LocalSettings.php to the same directory as
@@ -25,14 +25,14 @@ services:
     #volumes:
         #- db-data:/var/lib/mysql
         
-  #fuseki:
-    #image: stain/jena-fuseki
-    #environment:
-      #ADMIN_PASSWORD: admin
-    #ports:
-      #- "3031:3030"    
-    ##volumes:
-        ##- db-data:/fuseki
+  fuseki:
+    image: secoresearch/fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+    ports:
+      - "3030:3030"    
+    #volumes:
+        #- db-data:/fuseki
       
 volumes:
   db-data:  

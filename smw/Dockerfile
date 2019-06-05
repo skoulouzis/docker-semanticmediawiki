@@ -20,12 +20,6 @@ WORKDIR /root/
 COPY setup.sh .
 RUN chmod +x setup.sh
 
-WORKDIR /root/
-RUN wget https://github.com/mwjames/travis-support/raw/master/fuseki/2.4.0/apache-jena-fuseki-2.4.0.tar.gz
-RUN tar -xf apache-jena-fuseki-2.4.0.tar.gz
-RUN mv apache-jena-fuseki-2.4.0 fuseki
-
-
 CMD /root/setup.sh && apache2-foreground
 
 # docker build -t smw .

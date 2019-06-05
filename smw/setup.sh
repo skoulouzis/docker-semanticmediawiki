@@ -3,7 +3,7 @@
 mysql -uroot -pexample -hmariadb -e'SELECT version();'
 while (($?))
 do
-    sleep 0.2
+    sleep 0.5
     mysql -uroot -pexample -hmariadb -e'SELECT version();'  
 done
 
@@ -28,11 +28,7 @@ php maintenance/install.php \
 mv /tmp/LocalSettings.php .
 composer update --no-dev --prefer-source 
 composer update --no-dev --prefer-source
-# composer require mediawiki/semantic-media-wiki
+
 
 cd /var/www/html/extensions/SemanticMediaWiki/maintenance
 php setupStore.php
-
-cd /root/fuseki/
-bash fuseki-server --update --mem /db &>/tmp/fuseki-server &
-
