@@ -1,0 +1,19 @@
+{
+	"require": {
+		"mediawiki/semantic-media-wiki": "~3.0.2",
+		"mediawiki/page-forms": "~4.5",
+		"easyrdf/easyrdf": "~0.9.1"
+	},
+	"extra": {
+		"merge-plugin": {
+			"include": [
+				"extensions/Mpdf/composer.json",
+				"extensions/SyntaxHighlight_GeSHi/composer.json"
+			]
+		}
+	},
+	"config": {
+		"preferred-install": "source",
+		"optimize-autoloader": true
+	}
+}
