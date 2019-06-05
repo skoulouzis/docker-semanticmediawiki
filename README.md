@@ -1,4 +1,7 @@
 # docker-semanticmediawiki
+## Prerequisites
+* docker 
+* docker stack 
 ```
 git clone https://github.com/skoulouzis/docker-semanticmediawiki.git
 ```
