@@ -3,9 +3,12 @@ services:
   mediawiki:
     image: smw
     ports:
-      - 80:80
-    volumes:
-      - /var/www/html/images
+      - "80:80"
+    depends_on:
+      - mariadb
+      - fuseki
+    #volumes:
+      #- /var/www/html/images
       # After initial setup, download LocalSettings.php to the same directory as
       # this yaml and uncomment the following line and use compose to restart
       # the mediawiki service
@@ -19,17 +22,17 @@ services:
       MYSQL_USER: wikiuser
       MYSQL_PASSWORD: example
       MYSQL_ROOT_PASSWORD: example
-    volumes:
-        - db-data:/var/lib/mysql
-        
-  #fuseki:
-    #image: stain/jena-fuseki
-    #environment:
-      #ADMIN_PASSWORD: admin
-    #ports:
-      #- "3030:3030"      
     #volumes:
-        #- db-data:/fuseki    
+        #- db-data:/var/lib/mysql
+        
+  fuseki:
+    image: secoresearch/fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+    ports:
+      - "3030:3030"    
+    #volumes:
+        #- db-data:/fuseki
       
 volumes:
   db-data:  
