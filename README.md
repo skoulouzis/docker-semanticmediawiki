@@ -1,5 +1,8 @@
 # docker-semanticmediawiki
 ```
+git clone https://github.com/skoulouzis/docker-semanticmediawiki.git
+```
+```
 cd smw
 ```
 ```
